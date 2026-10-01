@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ADDA
+  datasource:
+    url: jdbc:postgresql://localhost:5432/adda
+    username: adda_app
+    password: ${DB_PASSWORD:adda_dev}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migrations
+
+server:
+  port: 8800
+
+
+
+
+

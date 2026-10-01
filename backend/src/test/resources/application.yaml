@@ -1,0 +1,5 @@
+spring:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/adda
+      username: adda_app
+      password: ${DB_PASSWORD:adda_dev}
