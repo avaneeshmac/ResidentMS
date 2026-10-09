@@ -2,6 +2,9 @@ package com.example.adda.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "resident")
@@ -29,5 +32,23 @@ public class Resident {
 
     @Column(name = "profile_pic" , length = 2048)
     private String profilePic ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<AmenityBooking> amenityBookings = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<FlatResident> flatResidents = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<Maintenance> maintenances = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<Payment> payments = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<SocietyResident> societyResidents = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "resident" , cascade = CascadeType.PERSIST )
+    private List<VisitorLog> visitorLogs = new ArrayList<>() ;
 
 }

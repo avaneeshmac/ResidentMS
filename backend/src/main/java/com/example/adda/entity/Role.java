@@ -2,6 +2,9 @@ package com.example.adda.entity;
 
 import jakarta.persistence.* ;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "role")
 public class Role {
@@ -19,4 +22,8 @@ public class Role {
 
     @Column(name = "can_post_notices" , nullable = false)
     private Boolean canPostNotices ;
+
+    @OneToMany(mappedBy = "role" , cascade = CascadeType.PERSIST )
+    private List<SocietyResident> societyResidents = new ArrayList<>() ;
+
 }

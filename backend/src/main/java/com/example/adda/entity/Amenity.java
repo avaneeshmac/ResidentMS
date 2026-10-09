@@ -2,6 +2,9 @@ package com.example.adda.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "amenity")
 public class Amenity {
@@ -23,5 +26,11 @@ public class Amenity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "society_id" , nullable = false)
     private Society society ;
+
+    @OneToMany(mappedBy = "amenity" , cascade = CascadeType.PERSIST )
+    private List<AmenityBooking> amenityBookings  = new ArrayList<>() ;
+
+
+
 
 }

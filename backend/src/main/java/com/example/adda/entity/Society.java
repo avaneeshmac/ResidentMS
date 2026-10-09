@@ -39,8 +39,14 @@ public class Society {
     @OneToMany(mappedBy = "society" , cascade = CascadeType.PERSIST)
     private List<Asset> assets = new ArrayList<>()  ;
 
+    @OneToMany(mappedBy = "society" , cascade = CascadeType.PERSIST )
+    private List<ParkingSlot> parkingSlots = new ArrayList<>() ;
 
+    @OneToMany(mappedBy = "society" , cascade = CascadeType.PERSIST )
+    private List<SocietyResident> societyResidents = new ArrayList<>() ;
 
+    @OneToMany(mappedBy = "society" , cascade = CascadeType.PERSIST )
+    private List<Staff> staff = new ArrayList<>() ;
 
 
 }

@@ -1,6 +1,9 @@
 package com.example.adda.entity;
 import jakarta.persistence.* ;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "visitor")
 public class Visitor {
@@ -21,4 +24,8 @@ public class Visitor {
 
     @Column(name = "vehicle_number" , length = 50)
     private String vehicleNumber ;
+
+    @OneToMany(mappedBy = "visitor" , cascade = CascadeType.PERSIST )
+    private List<VisitorLog> visitorLogs = new ArrayList<>() ;
+
 }

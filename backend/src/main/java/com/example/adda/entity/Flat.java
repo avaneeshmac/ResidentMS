@@ -1,6 +1,8 @@
 package com.example.adda.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "flat" , uniqueConstraints = @UniqueConstraint(name = "uq_flat" , columnNames = {"flat_number","block_id"}))
@@ -26,4 +28,23 @@ public class Flat {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "block_id" , nullable = false)
     private Block block ;
+
+    @OneToMany(mappedBy = "flat" , cascade = CascadeType.PERSIST )
+    private List<FlatResident> flatResidents = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "flat" , cascade = CascadeType.PERSIST )
+    private List<Maintenance> maintenances = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "flat" , cascade = CascadeType.PERSIST )
+    private List<ParkingSlot> parkingSlots = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "flat" , cascade = CascadeType.PERSIST )
+    private List<Vehicle> vehicles = new ArrayList<>() ;
+
+    @OneToMany(mappedBy = "flat" , cascade = CascadeType.PERSIST )
+    private List<VisitorLog> visitorLogs = new ArrayList<>() ;
+
+
+
 }
+
